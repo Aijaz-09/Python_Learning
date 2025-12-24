@@ -1,16 +1,10 @@
 
-# fruits =     ["apple", "orange", "banana", "coconut"]
-# vegetables = ["celery", "carrots", "potatoes"]
-# meats =      ["chicken", "fish", "turkey"]
+numpad = ((1, 2, 3),
+          (4, 5, 6),
+          (7, 8, 9),
+          ("*", 0, "#"))
 
-groceries = (
-    {"apple", "orange", "banana", "coconut"},
-    {"celery", "carrots", "potatoes"},
-    {"chicken", "fish", "turkey"}
-)
-
-
-for collection in groceries:
-    for food in collection:
-        print(food, end=" ")
+for row in numpad:
+    for button in row:
+        print(button, end=" ")
     print()
