@@ -4,49 +4,33 @@ options = ("rock", "paper", "scissors")
 player = None
 computer_score = 0
 player_score = 0
-while True:
+playing = True
+
+while playing:
     computer = random.choice(options)
     player = input("Enter a choice (rock, paper, scissors) (q to quit): ")
     if player.lower() == "q":
-        break
+        playing = False
     if player == "":
         print("You did not enter a choice")
     elif  options.count(player) == 0:
         print(f"{player} is not a valid choice")
     else:
-        if player == "rock" and computer == "rock":
-            print(f"Computer: {computer} 🪨")
-            print("Tie!🤨")
-        elif player == "rock" and computer == "paper":
-            print(f"Computer: {computer} 📃")
-            print("YOU LOSE!👎")
-            computer_score += 1
-        elif player == "rock" and computer == "scissors":
-            print(f"Computer: {computer} ✂️")
+        print(f"Computer: {computer}")
+        if player == "rock" and computer == "scissors":
             print("YOU WIN!👍")
             player_score += 1
         elif player == "paper" and computer == "rock":
-            print(f"Computer: {computer} 🪨")
             print("YOU WIN!👍")
             player_score += 1
-        elif player == "paper" and computer == "paper":
-            print(f"Computer: {computer} 📃")
-            print("Tie!🤨")
-        elif player == "paper" and computer == "scissors":
-            print(f"Computer: {computer} ✂️")
-            print("YOU LOSE!👎")
-            computer_score += 1
-        elif player == "scissors" and computer == "rock":
-            print(f"Computer: {computer} 🪨")
-            print("YOU LOSE!👎")
-            computer_score += 1
         elif player == "scissors" and computer == "paper":
-            print(f"Computer: {computer} 📃")
             print("YOU WIN!👍")
             player_score += 1
-        elif player == "scissors" and computer == "scissors":
-            print(f"Computer: {computer} ✂️")
+        elif player == computer:
             print("Tie!🤨")
+        else:
+            print("YOU LOSE!👎")
+            computer_score += 1
 
 print("----------------------GAME OVER-------------------------------")
 print("The scores are: ")
